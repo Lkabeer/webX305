@@ -6,6 +6,8 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
+import { AuthService } from "./services/auth.service";
+
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +44,9 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
     AngularFireAuthModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
