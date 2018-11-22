@@ -8,10 +8,10 @@ import { AuthService } from '../services/auth.service';
 })
 export class BsNavbarComponent {
 
-  constructor(public auth: AuthService) {
+  constructor(public authService: AuthService) {
   }
 
   logout() {
-    this.auth.logout();
+    this.authService.logout();
   }
 }
