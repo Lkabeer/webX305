@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import * as firebase from "firebase/app";
 
@@ -7,12 +7,9 @@ import * as firebase from "firebase/app";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   constructor(private afAuth: AngularFireAuth) { }
-
-  ngOnInit() {
-  }
 
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
