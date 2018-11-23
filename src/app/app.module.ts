@@ -7,6 +7,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AuthService } from "./services/auth.service";
+import { AuthGuard } from './services/auth-guard.service';
+import { UserService } from './services/user.service';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +23,6 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { AuthGuard } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AuthGuard } from './services/auth-guard.service';
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
