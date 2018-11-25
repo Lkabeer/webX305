@@ -5,8 +5,8 @@ import * as firebase from "firebase";
 
 import { AppUser } from '../modals/app-user';
 import { AuthService } from "./auth.service";
-import { Observable } from "rxjs";
-
+import { Observable, of } from "rxjs";
+ 
 @Injectable({
   providedIn: 'root'
 })
@@ -17,8 +17,8 @@ export class UserService {
   constructor(
     private authSerivce: AuthService,
     private db: AngularFireDatabase) {
-      this.getAppUser$Data();
-    }
+    this.getAppUser$Data();
+  }
 
   save(user: firebase.User) {
     this.db.object('/users/' + user.uid).update({
@@ -33,11 +33,15 @@ export class UserService {
 
   getAppUser$Data() {
     this.authSerivce.user$.subscribe(user => {
-      this.appUser$ = this.get(user.uid).valueChanges();
+      if (user) {
+        this.appUser$ = this.get(user.uid).valueChanges();
 
-      this.appUser$.subscribe(appUser => {
-        this.isAdmin = appUser.isAdmin
-      });
+        this.appUser$.subscribe(appUser => {
+          this.isAdmin = appUser.isAdmin
+        });
+      } else {
+        this.appUser$ = of(null);
+      }
     });
   }
 }

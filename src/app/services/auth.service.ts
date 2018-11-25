@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AngularFireAuth } from "@angular/fire/auth";
 import * as firebase from "firebase/app";
@@ -14,7 +14,8 @@ export class AuthService {
 
   constructor(
     private afAuth: AngularFireAuth, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) { 
     this.user$ = afAuth.authState;
   }
@@ -28,6 +29,7 @@ export class AuthService {
 
   logout() {
     this.afAuth.auth.signOut();
+    this.router.navigate(['/']);
   }
 
 }
