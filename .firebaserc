@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "frontendxteam"
+    "default": "shopx-8c39c",
+    "shopX": "shopx-8c39c"
   }
 }
