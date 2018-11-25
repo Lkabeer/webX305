@@ -7,9 +7,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AuthService } from "./services/auth.service";
-import { AuthGuard } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
+import { AuthGuard } from './services/auth-guard.service';
 import { AdminAuthGuard } from "./services/admin-auth-guard.service";
+import { CategoryService } from './services/category.service';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -53,7 +54,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AuthService,
     AuthGuard,
     UserService,
-    AdminAuthGuard
+    AdminAuthGuard,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })
