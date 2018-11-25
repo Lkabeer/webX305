@@ -6,6 +6,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { CustomFormsModule } from "ng2-validation";
 
 import { AuthService } from "./services/auth.service";
 import { UserService } from './services/user.service';
@@ -51,7 +52,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule.forRoot(),
-    FormsModule 
+    FormsModule,
+    CustomFormsModule
   ],
   providers: [
     AuthService,
