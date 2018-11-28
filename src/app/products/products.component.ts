@@ -29,9 +29,7 @@ export class ProductsComponent {
         this.filteredProducts = (this.category) ?
           this.products.filter(p => p.category === this.category) :
           this.products;
-  
-        console.log(`products: ${this.filteredProducts} & category: ${this.category}`);
-      });
+        });
     });
 
     this.categories$ = this.categoriesService.getAll();
