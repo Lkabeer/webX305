@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
-import { CategoryService } from '../services/category.service';
 import { Product } from "../modals/product";
-import { map } from "rxjs/operators";
 
 @Component({
   selector: 'app-products',
@@ -18,8 +16,7 @@ export class ProductsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
-    private categoriesService: CategoryService) {
+    private productService: ProductService) {
     this.productService.getAll().subscribe(products$ => {
       this.products = products$
 
@@ -31,8 +28,6 @@ export class ProductsComponent {
           this.products;
         });
     });
-
-    this.categories$ = this.categoriesService.getAll();
   }
 
 }
